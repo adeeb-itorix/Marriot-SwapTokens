@@ -110,24 +110,6 @@
          </Response>
          <Condition>(proxy.pathsuffix MatchesPath &quot;/{memberIdentifier}/swaptokens&quot;) and (request.verb= &quot;POST&quot;)</Condition>
       </Flow>
-      <!-- CORS Preflight flow-->
-      <Flow name="CORS">
-         <Description/>
-         <Request>
-            <Step>
-               <Name>SF-Proxy-Current-Flow-Name</Name>
-            </Step>
-            <Step>
-               <Name>cf-getCORSDomainList</Name>
-            </Step>
-         </Request>
-         <Response>
-            <Step>
-               <Name>cf-CORSValidation</Name>
-            </Step>
-         </Response>
-         <Condition>(log.proxyVerb == "OPTIONS") and (log.origin != null)</Condition>
-      </Flow>
       <Flow name="unknown-resource">
          <Request>
             <Step>
